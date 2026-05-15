@@ -185,74 +185,98 @@ const Hero = () => {
 const Problem = () => (
   <section className="py-36" style={{ backgroundColor: C.dark }}>
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid lg:grid-cols-2 gap-20 items-center">
+
+      {/* Emotional hook */}
+      <div className="max-w-3xl mb-24">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <span className="font-display text-[10px] font-bold uppercase tracking-[0.5em] mb-6 inline-block" style={{ color: C.gold }}>
-            The Real Problem
+            What is happening right now
           </span>
           <h2 className="font-serif text-4xl lg:text-5xl font-bold mb-8 leading-tight" style={{ color: C.cream }}>
-            Loyalty won&apos;t save you<br />
-            from being{' '}
-            <span className="italic font-normal" style={{ color: C.gold }}>invisible.</span>
+            Someone in Concord just searched<br />
+            <span className="italic font-normal" style={{ color: C.gold }}>&ldquo;European food near me.&rdquo;</span><br />
+            They didn&apos;t find you.
           </h2>
-          <p className="text-lg font-light leading-relaxed mb-6" style={{ color: C.muted }}>
-            When someone in Concord searches &ldquo;European deli near me&rdquo; &mdash; do you show up?
-            If not, your regulars&apos; kids discover Trader Joe&apos;s first. And they don&apos;t come back.
-          </p>
-          <p className="text-lg font-light leading-relaxed" style={{ color: C.muted }}>
-            The solution isn&apos;t a $10,000 agency site. It&apos;s a fast, local digital strategy
-            executed with AI &mdash; compressing months of work into days.
+          <p className="text-xl font-light leading-relaxed" style={{ color: C.muted }}>
+            Your regulars know where you are. But new families moving into Concord, young people,
+            anyone who doesn&apos;t already know you &mdash; they search online first.
+            If you&apos;re not there, you don&apos;t exist for them.
           </p>
         </motion.div>
-
-        <div className="space-y-4">
-          {[
-            {
-              icon: <Globe className="w-5 h-5" />,
-              title: "You're invisible on Google",
-              body: "No optimized listing = no new customers. 76% of local searches result in a store visit within 24 hours.",
-            },
-            {
-              icon: <ShoppingBag className="w-5 h-5" />,
-              title: "No online ordering = lost sales",
-              body: "Busy families order ahead. No Express Pickup means they go where convenience wins.",
-            },
-            {
-              icon: <Star className="w-5 h-5" />,
-              title: "Zero reviews = zero trust",
-              body: "New Concord residents choose by Google stars. Your quality speaks for itself — if they can find you.",
-            },
-            {
-              icon: <BarChart3 className="w-5 h-5" />,
-              title: "Competitors run targeted ads",
-              body: "Local chains spend $10/day on geo-targeted ads. We beat them with smarter positioning for less.",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-5 p-6 rounded-sm border transition-all hover:border-opacity-60"
-              style={{ borderColor: `${C.gold}18`, backgroundColor: `${C.darkWarm}` }}
-            >
-              <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${C.gold}15`, color: C.gold }}>
-                {item.icon}
-              </div>
-              <div>
-                <h4 className="font-serif text-base font-bold mb-1" style={{ color: C.cream }}>{item.title}</h4>
-                <p className="text-sm font-light leading-relaxed" style={{ color: C.muted }}>{item.body}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
+
+      {/* Competitor comparison */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="grid md:grid-cols-2 gap-6 mb-24"
+      >
+        {/* Them */}
+        <div className="p-8 rounded-sm border" style={{ borderColor: 'rgba(239,68,68,0.2)', backgroundColor: 'rgba(239,68,68,0.04)' }}>
+          <p className="font-display text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: 'rgba(239,68,68,0.7)' }}>
+            Trader Joe&apos;s &amp; Whole Foods — right now
+          </p>
+          <ul className="space-y-4">
+            {[
+              'Website with full product catalog',
+              'Online ordering + in-store pickup',
+              'Hundreds of Google reviews',
+              'Shows up instantly for any local search',
+              'Social media updated daily',
+            ].map((item, i) => (
+              <li key={i} className="flex items-center gap-3 text-sm font-light" style={{ color: C.muted }}>
+                <span className="w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-[10px]" style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#EF4444' }}>✕</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* You */}
+        <div className="p-8 rounded-sm border" style={{ borderColor: `${C.gold}25`, backgroundColor: `${C.gold}05` }}>
+          <p className="font-display text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: `${C.gold}90` }}>
+            Bay Area European Market — after we work together
+          </p>
+          <ul className="space-y-4">
+            {[
+              'Your own page — products, prices, photos',
+              'WhatsApp ordering — customers pick up ready orders',
+              'QR code on your counter drives new reviews',
+              'A real URL you can share anywhere',
+              'Social captions ready to post every week',
+            ].map((item, i) => (
+              <li key={i} className="flex items-center gap-3 text-sm font-light" style={{ color: C.muted }}>
+                <span className="w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center text-[10px]" style={{ backgroundColor: `${C.gold}20`, color: C.gold }}>✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* What they have that you don't */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="p-10 rounded-sm border text-center max-w-3xl mx-auto"
+        style={{ borderColor: `${C.gold}18`, backgroundColor: C.darkWarm }}
+      >
+        <p className="font-serif text-2xl mb-3" style={{ color: C.cream }}>
+          The big chains don&apos;t have better products than you.
+        </p>
+        <p className="text-lg font-light" style={{ color: C.muted }}>
+          They just made it easier to find them, order from them, and trust them online.
+          That&apos;s the only advantage we need to take away.
+        </p>
+      </motion.div>
+
     </div>
   </section>
 );
